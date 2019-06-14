@@ -54,7 +54,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Chip label={this.state.number}/>
+        <Chip label={this.state.number} variant="outlined"/>
         <br></br>
         
         <Button variant="contained" color="primary" onClick={this.increase} >add </Button>
