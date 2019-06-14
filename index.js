@@ -7,17 +7,33 @@ import Icon from '@material-ui/core/Icon';
 import Fab from '@material-ui/core/Fab';
 import TextField from '@material-ui/core/TextField';
 import Chip from '@material-ui/core/Chip';
-class App extends Component {
+import { makeStyles } from '@material-ui/styles';
+const useStyles = makeStyles({
+  root: {
+    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+    border: 0,
+    color: 'white',
+    height: 48,
+    padding: '0 30px',
+  },
+});
+
+export default class App extends Component {
+  
   constructor() {
+    
     super();
     this.state = {
       number: 0,
       pos:0,
       neg:0
+      
     };
+    
   }
   increase=()=>{
     //console.log("skj");
+    
     this.setState({number:this.state.number+1});
 
   }
@@ -31,7 +47,7 @@ class App extends Component {
     this.setState({number:val});
   }
   sub=()=>{
-    let val=this.state.number-this.state.neg;
+    let val=this.state.number-this.state.pos;
     this.setState({number:val});
   }
   positive=()=>{
@@ -43,41 +59,30 @@ class App extends Component {
         }
   
   }
-  negative=()=>{
-    if((Number(event.target.value))>0){
-          this.setState({neg:Number(event.target.value)});
-        }
-        else{
-          this.setState({neg:Number(0)});
-        }
-  }
   render() {
+    
     return (
-      <div>
+      
+      <div><div style={{textAlign:"center",marginBottom:10}}>
         <Chip label={this.state.number} variant="outlined"/>
-        <br></br>
-        
+        </div>
+        <div style={{textAlign:"center"}}>
         <Button variant="contained" color="primary" onClick={this.increase} >add </Button>
-      <Button variant="contained" color="secondary" onClick={this.decrease}>sub </Button>
-        <br></br><TextField
+        <Button variant="contained" color="secondary" onClick={this.decrease}>sub </Button>
+        <br></br></div><div style={{textAlign:"center"}}><TextField
         label="Number only"
         defaultValue=""
         margin="dense"
         variant="outlined"
         onChange={this.positive}
-        className="root" />
-        <Fab color="primary" aria-label="Add" onClick={this.add}>
+        className="root" style={{marginLeft:25}} /></div><br></br>
+        <div style={{textAlign:"center"}}>
+        <Fab color="primary" aria-label="Add" onClick={this.add} >
         <AddIcon/>
-      </Fab><br></br>
-        <TextField
-        label="Number only"
-        defaultValue=""
-        margin="dense"
-        variant="outlined"
-        onChange={this.negative}/> 
+      </Fab>
         <Fab color="secondary" aria-label="Add" onClick={this.sub}>
         ----
-      </Fab> 
+      </Fab> </div>
       </div>
     
     );
