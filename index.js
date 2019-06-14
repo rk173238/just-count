@@ -8,15 +8,6 @@ import Fab from '@material-ui/core/Fab';
 import TextField from '@material-ui/core/TextField';
 import Chip from '@material-ui/core/Chip';
 import { makeStyles } from '@material-ui/styles';
-const useStyles = makeStyles({
-  root: {
-    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-    border: 0,
-    color: 'white',
-    height: 48,
-    padding: '0 30px',
-  },
-});
 
 export default class App extends Component {
   
